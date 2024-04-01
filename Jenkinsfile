@@ -47,7 +47,7 @@ pipeline {
                     docker.withRegistry("${DOCKER_REGISTRY}", "${DOCKER_CREDENTIALS_ID}") {
                         customImage.push()
                     }
-                }
+                }//hello
             }
         }
 
