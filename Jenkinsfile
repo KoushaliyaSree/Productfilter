@@ -1,15 +1,6 @@
 pipeline {
     agent any
 
-    // environment {
-    //     // DOCKER_REGISTRY = 'https://index.docker.io/v1//' // Docker Hub URL or your private registry URL
-    //     // DOCKER_CREDENTIALS_ID = 'koushaliya/product_filter' // Jenkins credentials ID for Docker Hub or your private registry
-    //     // REACT_APP_NAME = 'Productfilter'        
-    //     // TOMCAT_URL = 'http://localhost:8081' // URL of the Tomcat server
-    //     // TOMCAT_USER = 'admin' // Tomcat username with manager role
-    //     // TOMCAT_PASSWORD = 'admin' // Password for the Tomcat user
-    // }
-
     stages {
 
             stage('gitclone') {
@@ -28,9 +19,9 @@ pipeline {
                     sh 'npm install'
         //             sh 'npm run build'
                 
-        //         }
-        //     }
-        // }
+                 }
+             }
+        }
 
         // stage('Build Docker Image') {
         //     steps {
@@ -64,6 +55,6 @@ pipeline {
         //             }
         //         }
         //     }
-        // }
+         //}
     }
 }
