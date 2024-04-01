@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_CREDENTIALS_ID = 'docker hub'
+        DOCKER_CREDENTIALS_ID = 'dockerhubpwd'
         DOCKER_IMAGE_NAME = 'koushaliya/product_filter'
     }
 
@@ -40,26 +40,8 @@ pipeline {
              }
          }
 
-        stage('Push Docker Image') {
-            steps {
-                script {
-                    // Pushing Docker image to registry
-                    docker.withRegistry("${DOCKER_REGISTRY}", "${DOCKER_CREDENTIALS_ID}") {
-                        customImage.push()
-                    }
-                }//hello
-            }
-        }
+       
+       
 
-        // stage('Deploy to Tomcat') {
-        //     steps {
-        //         script {
-        //             // Deploying Docker image to Tomcat
-        //             withCredentials([usernamePassword(credentialsId: 'tomcat-credentials', usernameVariable: 'TOMCAT_USER', passwordVariable: 'TOMCAT_PASSWORD')]) {
-        //                 sh "curl -u ${TOMCAT_USER}:${TOMCAT_PASSWORD} -T target/your-war-file.war ${TOMCAT_URL}/manager/text/deploy?path=/your-app-context"
-        //             }
-        //         }
-        //     }
-         //}
-    }
+       }
 }
