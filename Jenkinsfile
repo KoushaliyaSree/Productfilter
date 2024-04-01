@@ -12,6 +12,15 @@ pipeline {
 
     stages {
 
+            stage('gitclone') {
+
+			steps {
+				 //checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/KoushaliyaSree/file2.git']])
+                 checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/KoushaliyaSree/Productfilter.git']])
+			}
+		}
+
+
          stage('Build and Test') {
             steps {
                 script {
