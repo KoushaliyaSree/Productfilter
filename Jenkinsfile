@@ -21,28 +21,28 @@ pipeline {
 		}
 
 
-         stage('Build and Test') {
-            steps {
-                script {
-                    // Install dependencies and build React application
-                    sh 'npm install'
-                    sh 'npm run build'
-                    sh 'npm test'
-                }
-            }
-        }
+        //  stage('Build and Test') {
+        //     steps {
+        //         script {
+        //             // Install dependencies and build React application
+        //             sh 'npm install'
+        //             sh 'npm run build'
+                
+        //         }
+        //     }
+        // }
 
-        stage('Build Docker Image') {
-            steps {
-                script {
-                    // Building Docker image
-                    //def customImage = docker.build("${DOCKER_REGISTRY}/your-image-name:${env.BUILD_ID}")
-                    //def customImage = docker.build("${DOCKER_REGISTRY}/${Productfilter}:${env.BUILD_ID}")
-                    sh 'docker build -t productfilter .'
+        // stage('Build Docker Image') {
+        //     steps {
+        //         script {
+        //             // Building Docker image
+        //             //def customImage = docker.build("${DOCKER_REGISTRY}/your-image-name:${env.BUILD_ID}")
+        //             //def customImage = docker.build("${DOCKER_REGISTRY}/${Productfilter}:${env.BUILD_ID}")
+        //             sh 'docker build -t productfilter .'
 
-                }
-            }
-        }
+        //         }
+        //     }
+        // }
 
         // stage('Push Docker Image') {
         //     steps {
