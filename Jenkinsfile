@@ -21,11 +21,11 @@ pipeline {
 		}
 
 
-        //  stage('Build and Test') {
-        //     steps {
-        //         script {
-        //             // Install dependencies and build React application
-        //             sh 'npm install'
+         stage('Build and Test') {
+            steps {
+                script {
+                    // Install dependencies and build React application
+                    sh 'npm install'
         //             sh 'npm run build'
                 
         //         }
