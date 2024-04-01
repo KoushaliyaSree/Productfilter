@@ -36,22 +36,23 @@ pipeline {
                 script {
                     // Building Docker image
                     //def customImage = docker.build("${DOCKER_REGISTRY}/your-image-name:${env.BUILD_ID}")
-                    def customImage = docker.build("${DOCKER_REGISTRY}/${Productfilter}:${env.BUILD_ID}")
+                    //def customImage = docker.build("${DOCKER_REGISTRY}/${Productfilter}:${env.BUILD_ID}")
+                    sh 'docker build -t productfilter .'
 
                 }
             }
         }
 
-        stage('Push Docker Image') {
-            steps {
-                script {
-                    // Pushing Docker image to registry
-                    docker.withRegistry("${DOCKER_REGISTRY}", "${DOCKER_CREDENTIALS_ID}") {
-                        customImage.push()
-                    }
-                }
-            }
-        }
+        // stage('Push Docker Image') {
+        //     steps {
+        //         script {
+        //             // Pushing Docker image to registry
+        //             docker.withRegistry("${DOCKER_REGISTRY}", "${DOCKER_CREDENTIALS_ID}") {
+        //                 customImage.push()
+        //             }
+        //         }
+        //     }
+        // }
 
         // stage('Deploy to Tomcat') {
         //     steps {
