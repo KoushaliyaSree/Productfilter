@@ -15,7 +15,7 @@ pipeline {
             stage('gitclone') {
 
 			steps {
-				 //checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/KoushaliyaSree/file2.git']])
+				 
                  checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/KoushaliyaSree/Productfilter.git']])
 			}
 		}
@@ -36,7 +36,7 @@ pipeline {
                 script {
                     // Building Docker image
                     //def customImage = docker.build("${DOCKER_REGISTRY}/your-image-name:${env.BUILD_ID}")
-                    def customImage = docker.build("${DOCKER_REGISTRY}/${REACT_APP_NAME}:${env.BUILD_ID}")
+                    def customImage = docker.build("${DOCKER_REGISTRY}/${Productfilter}:${env.BUILD_ID}")
 
                 }
             }
