@@ -40,6 +40,18 @@ pipeline {
              }
          }
 
+
+        stage('Push Docker Image to Docker Hub') {
+            steps {
+                script {
+                    // Login to Docker Hub
+                   withCredentials([string(credentialsId: 'dockerhubpwd', variable: 'dockerhubpwd')]) {
+                        sh 'docker login -u koushaliya -p ${dockerhubpwd}'
+                        sh 'docker push koushaliya/product_filter'
+                    }
+                    }
+                }
+            }   
        
        
 
